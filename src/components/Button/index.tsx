@@ -1,18 +1,14 @@
-import { Component, ComponentProps } from 'react';
+import { Component, ReactNode } from 'react';
+import style from './Button.module.scss';
 
-interface IButtonProps extends ComponentProps<'button'> {
-    children: React.ReactNode;
-    type?: 'button' | 'submit' | 'reset';
+interface IProp {
+  children: ReactNode;
 }
 
-class Button extends Component<IButtonProps> {
-    render() {
-        return (
-            <button>
-                {this.props.children}
-            </button>
-        )
-    }
+class Button extends Component<IProp> {
+  render() {
+    return <button className={style.button}>{this.props.children}</button>;
+  }
 }
 
 export default Button;
